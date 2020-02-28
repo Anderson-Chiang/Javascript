@@ -451,19 +451,31 @@ In the end, John would like to have 2 arrays:
 GOOD LUCK :)
 */
 
-function calculateTip(bill, tip) { 
-    var total = bill + tip;   // can use return?
-    if(bill <= 50 ){
-        console.log(tip = bill * 0.2);
-    } else if(bill > 50 && bill <= 200) {
-        console.log(tip = bill * 0.15);
-    } else if(bill > 200) {
-        console.log(tip = bill * 0.1);
+function calculatorTip(bill) {
+    var percentage;
+    switch(bill) {
+        case bill < 50:
+            percentage = .2;
+            break;
+        case bill >= 50 && bill < 200:
+            percentage = .15;
+            break;
+        default:
+            percentage = .1;
     }
-}   
+    return bill * percentage;
+}
 
-var tip = [calculateTip(125), calculateTip(50), calculateTip(268)];
-console.log(tip);
+var bills = [125, 40, 268];
+var tips = [calculatorTip(bills[0]),
+            calculatorTip(bills[1]),
+            calculatorTip(bills[2])];
+
+var total = [bills[0] + tips[0],
+             bills[1] + tips[1],
+             bills[2] + tips[2]];
+console.log(tips, total);
+
 
 
 
